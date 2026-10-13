@@ -1,6 +1,6 @@
 # Point of Sale — .NET 10 Microservices Sample
 
-[![CI](https://github.com/OWNER/REPO/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/REPO/actions/workflows/ci.yml)
+[![CI](https://github.com/OWNER/sample-pos-microservices-project/actions/workflows/ci.yml/badge.svg)](https://github.com/OWNER/sample-pos-microservices-project/actions/workflows/ci.yml)
 ![.NET](https://img.shields.io/badge/.NET-10.0-512BD4?logo=dotnet)
 ![C#](https://img.shields.io/badge/C%23-14-239120?logo=csharp)
 ![RabbitMQ](https://img.shields.io/badge/RabbitMQ-4.1-FF6600?logo=rabbitmq&logoColor=white)
@@ -288,8 +288,8 @@ Domain events are dispatched **inside** `SaveChangesAsync`, before the commit. D
 ### Option A: run everything with Docker Compose
 
 ```bash
-git clone https://github.com/OWNER/REPO.git
-cd REPO
+git clone https://github.com/OWNER/sample-pos-microservices-project.git
+cd sample-pos-microservices-project
 
 cp .env.example .env          # then paste your Stripe TEST keys into .env
 docker compose up --build -d
