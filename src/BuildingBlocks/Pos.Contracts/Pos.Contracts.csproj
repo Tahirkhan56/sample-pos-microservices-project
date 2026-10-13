@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Integration event contracts exchanged between services over RabbitMQ. Keep backwards compatible.</Description>
+  </PropertyGroup>
+
+</Project>

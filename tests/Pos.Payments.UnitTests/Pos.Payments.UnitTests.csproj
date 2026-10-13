@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Services\Payments\Pos.Payments.Domain\Pos.Payments.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Services\Payments\Pos.Payments.Application\Pos.Payments.Application.csproj" />
+    <ProjectReference Include="..\..\src\Services\Payments\Pos.Payments.Infrastructure\Pos.Payments.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>Shared DDD primitives (entities, aggregates, domain events, Result pattern, Money).</Description>
+  </PropertyGroup>
+
+</Project>

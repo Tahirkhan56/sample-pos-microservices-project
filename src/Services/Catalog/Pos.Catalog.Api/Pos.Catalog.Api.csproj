@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <UserSecretsId>pos-catalog-api</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Pos.BuildingBlocks.Web\Pos.BuildingBlocks.Web.csproj" />
+    <ProjectReference Include="..\Pos.Catalog.Infrastructure\Pos.Catalog.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

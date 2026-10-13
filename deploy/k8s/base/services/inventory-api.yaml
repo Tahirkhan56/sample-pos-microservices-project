@@ -1,0 +1,70 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: inventory-api
+  labels: { app.kubernetes.io/name: inventory-api }
+spec:
+  selector: { app.kubernetes.io/name: inventory-api }
+  ports:
+    - { name: http, port: 80, targetPort: http }
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: inventory-api
+  labels: { app.kubernetes.io/name: inventory-api, app.kubernetes.io/part-of: point-of-sale }
+spec:
+  replicas: 2
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels: { app.kubernetes.io/name: inventory-api }
+  strategy:
+    type: RollingUpdate
+    rollingUpdate: { maxSurge: 1, maxUnavailable: 0 }
+  template:
+    metadata:
+      labels: { app.kubernetes.io/name: inventory-api, app.kubernetes.io/part-of: point-of-sale }
+    spec:
+      securityContext:
+        runAsNonRoot: true
+        seccompProfile: { type: RuntimeDefault }
+      containers:
+        - name: inventory-api
+          image: pos/inventory-api:latest
+          imagePullPolicy: IfNotPresent
+          ports:
+            - { name: http, containerPort: 8080 }
+          envFrom:
+            - configMapRef: { name: pos-config }
+          env:
+            - { name: RabbitMq__QueueName, value: pos.inventory }
+            - name: ConnectionStrings__InventoryDb
+              valueFrom: { secretKeyRef: { name: pos-secrets, key: ConnectionStrings__InventoryDb } }
+            - name: RabbitMq__UserName
+              valueFrom: { secretKeyRef: { name: pos-secrets, key: RabbitMq__UserName } }
+            - name: RabbitMq__Password
+              valueFrom: { secretKeyRef: { name: pos-secrets, key: RabbitMq__Password } }
+          startupProbe:
+            httpGet: { path: /health/live, port: http }
+            periodSeconds: 5
+            failureThreshold: 30
+          livenessProbe:
+            httpGet: { path: /health/live, port: http }
+            periodSeconds: 15
+            failureThreshold: 3
+          readinessProbe:
+            httpGet: { path: /health/ready, port: http }
+            periodSeconds: 10
+            failureThreshold: 3
+          resources:
+            requests: { cpu: 100m, memory: 128Mi }
+            limits: { memory: 512Mi }
+          securityContext:
+            allowPrivilegeEscalation: false
+            readOnlyRootFilesystem: true
+            capabilities: { drop: ["ALL"] }
+          volumeMounts:
+            - { name: tmp, mountPath: /tmp }
+      volumes:
+        - name: tmp
+          emptyDir: {}

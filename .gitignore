@@ -1,0 +1,19 @@
+## .NET
+bin/
+obj/
+*.user
+*.suo
+*.userprefs
+.vs/
+.vscode/
+.idea/
+*.swp
+TestResults/
+coverage*/
+*.trx
+
+## Secrets
+.env
+appsettings.*.local.json
+deploy/k8s/base/secrets.local.yaml
+deploy/k8s/base/config/secrets.env

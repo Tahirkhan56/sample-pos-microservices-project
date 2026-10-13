@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Pos.BuildingBlocks.Application\Pos.BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\Pos.Payments.Domain\Pos.Payments.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Pos.Payments.UnitTests" />
+  </ItemGroup>
+
+</Project>

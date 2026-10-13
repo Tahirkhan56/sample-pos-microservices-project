@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: pos-config
+data:
+  ASPNETCORE_ENVIRONMENT: "Production"
+  RabbitMq__HostName: "rabbitmq"
+  RabbitMq__Port: "5672"
+  Outbox__PollingIntervalSeconds: "2"
+  Services__Catalog__BaseUrl: "http://catalog-api"
+  ReverseProxy__Clusters__catalog__Destinations__primary__Address: "http://catalog-api"
+  ReverseProxy__Clusters__inventory__Destinations__primary__Address: "http://inventory-api"
+  ReverseProxy__Clusters__ordering__Destinations__primary__Address: "http://ordering-api"
+  ReverseProxy__Clusters__payments__Destinations__primary__Address: "http://payments-api"

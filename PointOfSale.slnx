@@ -1,0 +1,44 @@
+<Solution>
+  <Folder Name="/src/" />
+  <Folder Name="/src/BuildingBlocks/">
+    <Project Path="src/BuildingBlocks/Pos.BuildingBlocks.Application/Pos.BuildingBlocks.Application.csproj" />
+    <Project Path="src/BuildingBlocks/Pos.BuildingBlocks.Domain/Pos.BuildingBlocks.Domain.csproj" />
+    <Project Path="src/BuildingBlocks/Pos.BuildingBlocks.Infrastructure/Pos.BuildingBlocks.Infrastructure.csproj" />
+    <Project Path="src/BuildingBlocks/Pos.BuildingBlocks.Web/Pos.BuildingBlocks.Web.csproj" />
+    <Project Path="src/BuildingBlocks/Pos.Contracts/Pos.Contracts.csproj" />
+  </Folder>
+  <Folder Name="/src/Gateway/">
+    <Project Path="src/Gateway/Pos.Gateway/Pos.Gateway.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/" />
+  <Folder Name="/src/Services/Catalog/">
+    <Project Path="src/Services/Catalog/Pos.Catalog.Api/Pos.Catalog.Api.csproj" />
+    <Project Path="src/Services/Catalog/Pos.Catalog.Application/Pos.Catalog.Application.csproj" />
+    <Project Path="src/Services/Catalog/Pos.Catalog.Domain/Pos.Catalog.Domain.csproj" />
+    <Project Path="src/Services/Catalog/Pos.Catalog.Infrastructure/Pos.Catalog.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Inventory/">
+    <Project Path="src/Services/Inventory/Pos.Inventory.Api/Pos.Inventory.Api.csproj" />
+    <Project Path="src/Services/Inventory/Pos.Inventory.Application/Pos.Inventory.Application.csproj" />
+    <Project Path="src/Services/Inventory/Pos.Inventory.Domain/Pos.Inventory.Domain.csproj" />
+    <Project Path="src/Services/Inventory/Pos.Inventory.Infrastructure/Pos.Inventory.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Ordering/">
+    <Project Path="src/Services/Ordering/Pos.Ordering.Api/Pos.Ordering.Api.csproj" />
+    <Project Path="src/Services/Ordering/Pos.Ordering.Application/Pos.Ordering.Application.csproj" />
+    <Project Path="src/Services/Ordering/Pos.Ordering.Domain/Pos.Ordering.Domain.csproj" />
+    <Project Path="src/Services/Ordering/Pos.Ordering.Infrastructure/Pos.Ordering.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/src/Services/Payments/">
+    <Project Path="src/Services/Payments/Pos.Payments.Api/Pos.Payments.Api.csproj" />
+    <Project Path="src/Services/Payments/Pos.Payments.Application/Pos.Payments.Application.csproj" />
+    <Project Path="src/Services/Payments/Pos.Payments.Domain/Pos.Payments.Domain.csproj" />
+    <Project Path="src/Services/Payments/Pos.Payments.Infrastructure/Pos.Payments.Infrastructure.csproj" />
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/Pos.Catalog.UnitTests/Pos.Catalog.UnitTests.csproj" />
+    <Project Path="tests/Pos.Inventory.UnitTests/Pos.Inventory.UnitTests.csproj" />
+    <Project Path="tests/Pos.Ordering.UnitTests/Pos.Ordering.UnitTests.csproj" />
+    <Project Path="tests/Pos.Payments.UnitTests/Pos.Payments.UnitTests.csproj" />
+  </Folder>
+</Solution>

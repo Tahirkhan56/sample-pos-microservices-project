@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <UserSecretsId>pos-ordering-api</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Pos.BuildingBlocks.Web\Pos.BuildingBlocks.Web.csproj" />
+    <ProjectReference Include="..\Pos.Ordering.Infrastructure\Pos.Ordering.Infrastructure.csproj" />
+  </ItemGroup>
+
+</Project>

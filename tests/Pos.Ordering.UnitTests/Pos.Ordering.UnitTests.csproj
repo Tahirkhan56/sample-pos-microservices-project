@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\Services\Ordering\Pos.Ordering.Domain\Pos.Ordering.Domain.csproj" />
+    <ProjectReference Include="..\..\src\Services\Ordering\Pos.Ordering.Application\Pos.Ordering.Application.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Pos.BuildingBlocks.Application\Pos.BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\Pos.Inventory.Domain\Pos.Inventory.Domain.csproj" />
+  </ItemGroup>
+
+</Project>

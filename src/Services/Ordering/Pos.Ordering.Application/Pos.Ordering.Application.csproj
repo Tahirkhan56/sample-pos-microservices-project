@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\BuildingBlocks\Pos.BuildingBlocks.Application\Pos.BuildingBlocks.Application.csproj" />
+    <ProjectReference Include="..\Pos.Ordering.Domain\Pos.Ordering.Domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="Pos.Ordering.UnitTests" />
+  </ItemGroup>
+
+</Project>

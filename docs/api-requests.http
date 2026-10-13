@@ -1,0 +1,61 @@
+### Point of Sale — end-to-end walkthrough (VS Code REST Client / Rider / Visual Studio .http)
+@gateway = http://localhost:8080
+
+### 1. Browse the catalog (seeded on first start)
+GET {{gateway}}/api/v1/products?search=latte
+
+### 2. Create a product (Inventory opens a stock record via RabbitMQ)
+POST {{gateway}}/api/v1/products
+Content-Type: application/json
+
+{
+  "sku": "COF-MOC-001",
+  "name": "Mocha",
+  "category": "Coffee",
+  "price": 4.25,
+  "currency": "USD"
+}
+
+### 3. Receive stock for a product (replace with a real product id)
+@productId = 00000000-0000-0000-0000-000000000000
+POST {{gateway}}/api/v1/inventory/{{productId}}/receive
+Content-Type: application/json
+
+{ "quantity": 50 }
+
+### 4. Ring up a sale -> 202 Accepted, status Pending
+POST {{gateway}}/api/v1/orders
+Content-Type: application/json
+
+{
+  "cashierId": "till-01",
+  "items": [ { "productId": "{{productId}}", "quantity": 2 } ]
+}
+
+### 5. Poll the order until status = AwaitingPayment
+@orderId = 00000000-0000-0000-0000-000000000000
+GET {{gateway}}/api/v1/orders/{{orderId}}
+
+### 6. Pay with a Stripe test card (confirmed server-side)
+POST {{gateway}}/api/v1/payments/orders/{{orderId}}/intent
+Content-Type: application/json
+
+{ "paymentMethodId": "pm_card_visa" }
+
+### 6b. Or simulate a decline, then retry step 6
+POST {{gateway}}/api/v1/payments/orders/{{orderId}}/intent
+Content-Type: application/json
+
+{ "paymentMethodId": "pm_card_visa_chargeDeclined" }
+
+### 7. Order is now Paid and stock committed
+GET {{gateway}}/api/v1/orders/{{orderId}}
+
+###
+GET {{gateway}}/api/v1/inventory/{{productId}}
+
+### Cancel an unpaid order (releases reserved stock, voids the PaymentIntent)
+POST {{gateway}}/api/v1/orders/{{orderId}}/cancel
+Content-Type: application/json
+
+{ "reason": "Customer left" }
